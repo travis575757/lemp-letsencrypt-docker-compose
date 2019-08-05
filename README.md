@@ -3,7 +3,7 @@ letsencrypt by server.io with mysql built in
 
 Configuration:
 
-For database strucuture and configuration use config/mysql/init/schema.sql
+For database structure and configuration use config/mysql/init/schema.sql
 
 For letsencrypt container : https://hub.docker.com/r/linuxserver/letsencrypt
 
