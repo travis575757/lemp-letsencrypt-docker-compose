@@ -32,6 +32,4 @@ services:
       - ${MYSQL_INIT-./config/mysql/init/schema.sql}:/docker-entrypoint-initdb.d/schema.sql:ro
     environment:
       MYSQL_ROOT_PASSWORD: tiger
-      MYSQL_DATABASE: lemp-main 
-      MYSQL_USER: lemp-main 
-      MYSQL_PASSWORD: lemp-main 
+      MYSQL_DATABASE: lemp-main
