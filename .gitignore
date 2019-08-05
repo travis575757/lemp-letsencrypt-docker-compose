@@ -1,0 +1,13 @@
+/.env
+/.vscode
+/config/mysql/data/*
+/config/mysql/logs/*
+.DS_Store
+/config/letsencrypt/log/*
+/config/letsencrypt/keys/*
+/config/letsencrypt/etc/*
+/config/letsencrypt/fail2ban/*
+/config/letsencrypt/etc/*
+/config/letsencrypt/crontabs/*
+/config/letsencrypt/dns-confg/*
+

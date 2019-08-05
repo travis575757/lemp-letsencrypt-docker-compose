@@ -1,0 +1,37 @@
+version: "3"
+services:
+  webserver:
+    image: linuxserver/letsencrypt
+    container_name: 'lemp-webserver'
+    cap_add:
+      - NET_ADMIN
+    environment: 
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+      - URL=mydomain.com
+      - SUBDOMAINS=
+      - VALIDATION=http
+    volumes:
+      - ${LETSENCRYPT_CONFIG-./config/letsencrypt}:/config
+    ports:
+      - 443:443
+      - 80:80 #optional
+    links:
+      - mysql
+    restart: unless-stopped
+  mysql:
+    build: ./bin/mysql
+    container_name: 'lemp-mysql'
+    restart: 'always'
+    ports:
+      - "3306:3306"
+    volumes: 
+      - ${MYSQL_DATA_DIR-./config/mysql/data}:/var/lib/mysql
+      - ${MYSQL_LOG_DIR-./config/mysql/logs}:/var/log/mysql
+      - ${MYSQL_INIT-./config/mysql/init/schema.sql}:/docker-entrypoint-initdb.d/schema.sql:ro
+    environment:
+      MYSQL_ROOT_PASSWORD: tiger
+      MYSQL_DATABASE: lemp-main 
+      MYSQL_USER: lemp-main 
+      MYSQL_PASSWORD: lemp-main 
