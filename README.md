@@ -1,5 +1,5 @@
 # lemp-letsencrypt-docker-compose
-letsencrypt by server.io with mysql built in
+A docker-compose webserver that actually provides ssl and a database.
 
 Configuration:
 
